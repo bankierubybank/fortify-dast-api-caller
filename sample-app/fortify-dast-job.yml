@@ -21,4 +21,3 @@ spec:
             - name: DAST_JOB_NAME
               value: "FROM_ARGOCD"
       restartPolicy: Never
-    backoffLimit: 4

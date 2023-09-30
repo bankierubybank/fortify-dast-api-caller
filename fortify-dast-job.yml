@@ -1,0 +1,24 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: fortify-dast-job
+spec:
+  template:
+    spec:
+      containers:
+        - name: fortify-dast-api-caller
+          image: bankierubybank/fortify-dast-api-caller:latest
+          command: ["/fortify-dast-api-caller.sh"]
+          env:
+            - name: DAST_API_HOST
+              value: ""
+            - name: DAST_USERNAME
+              value: ""
+            - name: DAST_PASSWORD
+              value: ""
+            - name: DAST_CICD_TOKEN
+              value: ""
+            - name: DAST_JOB_NAME
+              value: "FROM_K8s_JOB"
+      restartPolicy: Never
+    backoffLimit: 4

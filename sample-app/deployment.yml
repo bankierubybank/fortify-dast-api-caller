@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-dast-golang-gin
+  namespace: web-team-dev
+spec:
+  selector:
+    matchLabels:
+      app: test-dast-golang-gin
+  template:
+    metadata:
+      labels:
+        app: test-dast-golang-gin
+    spec:
+      automountServiceAccountToken: false
+      containers:
+      - name: test-dast-golang-gin
+        image: bankierubybank/golang-gin:latest
+        imagePullPolicy: Always
+        resources:
+          limits:
+            memory: "64Mi"
+            cpu: "250m"
+        env:
+          - name: node
+            valueFrom:
+              fieldRef:
+                fieldPath: spec.nodeName
+          - name: namespace
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+        ports:
+        - containerPort: 8080
+          protocol: TCP

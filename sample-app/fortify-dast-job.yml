@@ -2,9 +2,6 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   name: fortify-dast-job
-  annotation:
-    argocd.argoproj.io/hook: PostSync
-    argocd.argoproj.io/hook-delete-policy: HookSucceeded
 spec:
   template:
     spec:

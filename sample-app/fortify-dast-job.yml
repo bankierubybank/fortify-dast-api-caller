@@ -11,13 +11,13 @@ spec:
           command: ["/fortify-dast-api-caller.sh"]
           env:
             - name: DAST_API_HOST
-              value: ""
+              value: "https://172.16.67.168:5001"
             - name: DAST_USERNAME
-              value: "admin"
+              value: "dast-caller"
             - name: DAST_PASSWORD
-              value: ""
+              value: "DAST@Fortify#2023!"
             - name: DAST_CICD_TOKEN
-              value: ""
+              value: "1e34e2ef-f5f5-4bfa-a269-3949f9f24b82"
             - name: DAST_JOB_NAME
               value: "FROM_ARGOCD"
       restartPolicy: Never

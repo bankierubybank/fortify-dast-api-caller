@@ -13,16 +13,24 @@ This project is for demo how to trigger Fortify DAST scan via K8s job
 | DAST_JOB_NAME | DAST JOB NAME | - | YES |
 
 ### Usage
-Docker
+#### Docker
 ```
 docker run -e DAST_API_HOST=https://dast.tld -e DAST_USERNAME=admin -e DAST_PASSWORD=P@ssw0rd -e DAST_CICD_TOKEN=xxxxx-xxx-xxx-xxxxx -e DAST_JOB_NAME=TriggerFromDocker -rm bankierubybank/fortify-dast-api-caller:latest
 ```
 
-K8s/OpenShift
+#### K8s/OpenShift
 ```
 kubectl apply -f fortify-dast-job.yml
 ```
 
 ![Job](./screenshots/ocp-job.png)
 
-![Fortify-DAST](./screenshots/fortify-dast.png)
+![Fortify-DAST](./screenshots/fortify-dast-k8s.png)
+
+#### ArgoCD
+Add fortify-dast-job.yml to your app manifest
+or example to create app from `sample-app` directory
+
+![ArgoCD-Sync](./screenshots/argocd-sync.png)
+![ArgoCD-Log](./screenshots/argocd-job.png)
+![Fortify-DAST](./screenshots/fortify-dast-argocd.png)

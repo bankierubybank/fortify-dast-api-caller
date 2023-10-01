@@ -17,7 +17,7 @@ spec:
             - name: DAST_PASSWORD
               value: "DAST@Fortify#2023!"
             - name: DAST_CICD_TOKEN
-              value: "425e8e62-8d44-4a5c-8c27-95458a09975c"
+              value: "4ebc1b34-be5e-48f3-981a-ba4e16e9891f"
             - name: DAST_JOB_NAME
               value: "FROM_ARGOCD"
       restartPolicy: Never

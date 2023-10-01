@@ -2,9 +2,6 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   name: fortify-dast-job
-  annotation:
-    argocd.argoproj.io/hook: PostSync
-    argocd.argoproj.io/hook-delete-policy: HookSucceeded
 spec:
   template:
     spec:
@@ -14,14 +11,13 @@ spec:
           command: ["/fortify-dast-api-caller.sh"]
           env:
             - name: DAST_API_HOST
-              value: ""
+              value: "https://172.16.67.168:5001"
             - name: DAST_USERNAME
-              value: "admin"
+              value: "dast-caller"
             - name: DAST_PASSWORD
-              value: ""
+              value: "DAST@Fortify#2023!"
             - name: DAST_CICD_TOKEN
-              value: ""
+              value: "4ebc1b34-be5e-48f3-981a-ba4e16e9891f"
             - name: DAST_JOB_NAME
               value: "FROM_ARGOCD"
       restartPolicy: Never
-    backoffLimit: 4
